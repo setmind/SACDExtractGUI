@@ -271,7 +271,7 @@ public class GuiControl implements ExecThread.Callback{
         int i;
         try{
             i = Integer.parseInt(s); 
-            if(i <= 0 || i > 255){
+            if(i < 0 || i > 255){
                 inputPanel.setTextTextFieldAddress1("", true);
             }
             else{
@@ -287,7 +287,7 @@ public class GuiControl implements ExecThread.Callback{
         int i;
         try{
             i = Integer.parseInt(s); 
-            if(i <= 0 || i > 255){
+            if(i < 0 || i > 255){
                 inputPanel.setTextTextFieldAddress2("", true);
             }
             else{
