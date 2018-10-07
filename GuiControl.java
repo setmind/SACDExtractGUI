@@ -717,11 +717,11 @@ public class GuiControl implements ExecThread.Callback{
                 return null;
             }
             i = Integer.parseInt(stringAddress1); 
-            if(i <= 0 || i > 255){
+            if(i < 0 || i > 255){
                 return null;
             }
             i = Integer.parseInt(stringAddress2); 
-            if(i <= 0 || i > 255){
+            if(i < 0 || i > 255){
                 return null;
             }
             i = Integer.parseInt(stringAddress3); 
