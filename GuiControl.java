@@ -350,7 +350,12 @@ public class GuiControl implements ExecThread.Callback{
             processingPanel.setOption(ProcessingPanel.OPTION_STEREO, checkBoxState_selected_enabled);
             processingPanel.setOption(ProcessingPanel.OPTION_MULTI, checkBoxState_unselected_enabled);
         }
-        processingPanel.setOption(ProcessingPanel.OPTION_DECOMPRESS,  checkBoxState_unselected_enabled);
+        if(processingPanel.getOption(ProcessingPanel.OPTION_DECOMPRESS).selected){
+            processingPanel.setOption(ProcessingPanel.OPTION_DECOMPRESS, checkBoxState_selected_enabled);
+        }
+        else{
+            processingPanel.setOption(ProcessingPanel.OPTION_DECOMPRESS, checkBoxState_unselected_enabled);
+        }
         processingPanel.setOption(ProcessingPanel.OPTION_SELECTTRACKS, checkBoxState_unselected_enabled);
         processingPanel.setEnabledTextFieldTracks(false);
         processingPanel.setOption(ProcessingPanel.OPTION_NOPAD, checkBoxState_unselected_disabled);
@@ -364,7 +369,12 @@ public class GuiControl implements ExecThread.Callback{
             processingPanel.setOption(ProcessingPanel.OPTION_STEREO, checkBoxState_selected_enabled);
             processingPanel.setOption(ProcessingPanel.OPTION_MULTI, checkBoxState_unselected_enabled);
         }
-        processingPanel.setOption(ProcessingPanel.OPTION_DECOMPRESS,  checkBoxState_unselected_disabled);
+        if(processingPanel.getOption(ProcessingPanel.OPTION_DECOMPRESS).selected){
+            processingPanel.setOption(ProcessingPanel.OPTION_DECOMPRESS, checkBoxState_selected_enabled);
+        }
+        else{
+            processingPanel.setOption(ProcessingPanel.OPTION_DECOMPRESS, checkBoxState_unselected_enabled);
+        }
         processingPanel.setOption(ProcessingPanel.OPTION_SELECTTRACKS, checkBoxState_unselected_disabled);
         processingPanel.setEnabledTextFieldTracks(false);
         processingPanel.setOption(ProcessingPanel.OPTION_NOPAD, checkBoxState_unselected_disabled);
@@ -845,6 +855,9 @@ public class GuiControl implements ExecThread.Callback{
                 break;
             case ProcessingPanel.PROCESS_DSDIFFEM:
                 cmd.add("-e");
+                if(decompress){
+                    cmd.add("-c");
+                }
                 break;
             case ProcessingPanel.PROCESS_ISO:
                 cmd.add("-I");
