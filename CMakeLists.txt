@@ -36,4 +36,4 @@ file(APPEND Version.properties "repository=${GIT_REPO_URL}\n")
 set(CMAKE_JAVA_COMPILE_FLAGS "-source" "1.7" "-target" "1.7")
 
 project(SACDExtractGUI Java)
-add_jar(SACDExtractGUI MANIFEST MANIFEST.MF SACDExtractGUI.java AppFrame.java ExecThread.java InputPanel.java ProcessingPanel.java ProgramState.java CheckBoxState.java GuiControl.java OutputPanel.java ProgramPanel.java Version.properties)
+add_jar(SACDExtractGUI MANIFEST MANIFEST.MF SACDExtractGUI.java AppFrame.java ExecThread.java InputPanel.java ProcessingPanel.java ProgramState.java CheckBoxState.java GuiControl.java OutputPanel.java ProgramPanel.java OSDetect.java Version.properties)

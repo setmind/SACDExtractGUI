@@ -18,8 +18,6 @@ public class GuiControl implements ExecThread.Callback{
     private ProcessingPanel processingPanel;
     private OutputPanel outputPanel;
     private String inputDirectory = null;
-    private static final boolean WIN32 = "\\".equals(System.getProperty("file.separator"));
-    private static final boolean MACOS = System.getProperty("os.name").toLowerCase().startsWith("mac os x");
     private CheckBoxState checkBoxState_unselected_disabled = new CheckBoxState(false, false);
     private CheckBoxState checkBoxState_unselected_enabled = new CheckBoxState(false, true);
     private CheckBoxState checkBoxState_selected_disabled = new CheckBoxState(true, false);
@@ -62,7 +60,7 @@ public class GuiControl implements ExecThread.Callback{
     }
 
     public void buttonBrowseProgram(){
-        if(MACOS){
+        if(OSDetect.isMac()){
             buttonBrowseProgramFD();
         }
         else{
@@ -104,7 +102,7 @@ public class GuiControl implements ExecThread.Callback{
     }
 
     public void buttonBrowseFile(){
-        if(MACOS){
+        if(OSDetect.isMac()){
             buttonBrowseFileFD();
         }
         else{
@@ -154,7 +152,7 @@ public class GuiControl implements ExecThread.Callback{
     }
 
     public void buttonAdd(){
-        if(MACOS){
+        if(OSDetect.isMac()){
             buttonAddFD();
         }
         else{
@@ -698,7 +696,7 @@ public class GuiControl implements ExecThread.Callback{
         execThread = new ExecThread(this);
         ArrayList<String> cmd;
 
-        if(WIN32){
+        if(OSDetect.isWindows()){
             cmd = new ArrayList<String>(Arrays.asList("ping", "-n", "3", "-w", "1", address));
         }
         else{

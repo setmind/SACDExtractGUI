@@ -16,7 +16,6 @@ class ProgramState{
     private boolean output1Selected, output2Selected;
     private String output1, output2;
     private AppFrame appFrame;
-    private static final boolean WIN32 = "\\".equals(System.getProperty("file.separator"));
     private String inputDirectory;
 
     private ProgramPanel programPanel;
@@ -25,7 +24,7 @@ class ProgramState{
     private OutputPanel outputPanel;
     
     private void init(){
-        program = WIN32 ? "sacd_extract.exe" : "sacd_extract";
+        program = OSDetect.isWindows() ? "sacd_extract.exe" : "sacd_extract";
         inputType = InputPanel.INPUT_TYPE_SERVER;
         ipAddr0 = 192; ipAddr1 = 168; ipAddr2 = 1; ipAddr3 = 100; ipAddrPort = 2002;
         processingType = ProcessingPanel.PROCESS_DSF;
@@ -93,7 +92,7 @@ class ProgramState{
                 program = s; 
             }
             else{
-                program = WIN32 ? "sacd_extract.exe" : "sacd_extract";
+                program = OSDetect.isWindows() ? "sacd_extract.exe" : "sacd_extract";
             }
             if((s = prop.getProperty("inputType")) != null){
                 try{
