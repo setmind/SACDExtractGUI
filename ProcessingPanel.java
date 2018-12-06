@@ -78,6 +78,12 @@ public class ProcessingPanel extends JPanel{
         }
     }
 
+    public void setSelectedOptionIfEnabledByClick(int option, boolean s){
+        if(checkBoxes[option].isEnabled() && (checkBoxes[option].isSelected() == false) && s){
+            checkBoxes[option].doClick();
+        }
+    }
+
     public void setOption(int option, CheckBoxState s){
         checkBoxes[option].setEnabled(s.enabled);
         checkBoxes[option].setSelected(s.selected);

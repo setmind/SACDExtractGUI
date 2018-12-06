@@ -63,7 +63,7 @@ class ProgramState{
         processingPanel.setSelectedOptionIfEnabled(ProcessingPanel.OPTION_STEREO, stereo);
         processingPanel.setSelectedOptionIfEnabled(ProcessingPanel.OPTION_MULTI, multi);
         processingPanel.setSelectedOptionIfEnabled(ProcessingPanel.OPTION_DECOMPRESS, decompress);
-        processingPanel.doClickOptionIfEnabled(ProcessingPanel.OPTION_NOPAD, nopad);
+        processingPanel.setSelectedOptionIfEnabledByClick(ProcessingPanel.OPTION_NOPAD, nopad);
         processingPanel.setSelectedOptionIfEnabled(ProcessingPanel.OPTION_CUE, cue);
         processingPanel.setSelectedOptionIfEnabled(ProcessingPanel.OPTION_PRINT, print);
 
