@@ -234,7 +234,7 @@ public class OutputPanel extends JPanel{
         panelRun.add(buttonStop);
 
         font = textArea.getFont();
-        textArea.setFont(new Font("Courier", Font.PLAIN, font.getSize()));
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, font.getSize()));
         textArea.setEditable(false);
         textArea.setLineWrap(true);
         textArea.setMaximumSize(textArea.getPreferredSize());

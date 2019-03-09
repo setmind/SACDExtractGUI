@@ -67,7 +67,7 @@ class ExecThread extends Thread {
             try {
                 pb.redirectErrorStream(true);
                 process = pb.start();
-                reader = new BufferedReader(new InputStreamReader(process.getInputStream(), "UTF-8"));
+                reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                 while((line = reader.readLine()) != null){
                     callback.printLog(line);
 
